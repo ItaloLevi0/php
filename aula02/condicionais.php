@@ -1,25 +1,45 @@
 <?php
-$peso = $_GET["peso"];
+
 $altura = $_GET["altura"];
+$sexo = strtolower($_GET["sexo"]);
 
-$imc = $peso / ($altura ** 2);
+if($sexo != "m" && $sexo != "f") {
+    echo "Sexo não identificado";
+} else {
+    if ($sexo == "m") {
+        $imc = (72.7 * $altura) -58;
+        echo "Imc: ".number_format($imc, 1);
+    }
 
+    if ($sexo == "f") {
+        $imc = (62.1 * $altura) -44.7;
+        echo "Imc: ".number_format($imc, 1);
+    }
 
-if ($imc < 18.5) {
-    echo "Abaixo do peso";
 }
 
-if ($imc >= 18.5 && $imc < 25) {
-    echo "Peso normal";
-}
 
-if ($imc >= 25 && $imc <= 30) {
-    echo "Acima do peso";
-}
+// $peso = $_GET["peso"];
+// $altura = $_GET["altura"];
 
-if ($imc > 30) {
-    echo "Obeso";
-}
+// $imc = $peso / ($altura ** 2);
+
+
+// if ($imc < 18.5) {
+//     echo "Abaixo do peso";
+// }
+
+// if ($imc >= 18.5 && $imc < 25) {
+//     echo "Peso normal";
+// }
+
+// if ($imc >= 25 && $imc <= 30) {
+//     echo "Acima do peso";
+// }
+
+// if ($imc > 30) {
+//     echo "Obeso";
+// }
 
 // $valor = $_GET["valor"];
 
